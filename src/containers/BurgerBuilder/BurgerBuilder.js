@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Aux from "../../hoc/ReactAux";
+import Aux from "../../hoc/ReactAux/ReactAux";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
-import BuildControl from "../../components/Burger/BuildControls/BuildControl/BuildControl";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 
@@ -76,7 +75,7 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    alert("You continue");
+    alert("Checkout");
   };
 
   render() {
@@ -92,7 +91,12 @@ class BurgerBuilder extends Component {
           show={this.state.purchasing}
           modalClosed={this.purchaseCancelHandler}
         >
-          <OrderSummary price={this.state.totalPrice} ingredients={this.state.ingredients} purchaseCanceled={this.purchaseCancelHandler} purchaseContinued={this.purchaseContinueHandler} />
+          <OrderSummary
+            price={this.state.totalPrice}
+            ingredients={this.state.ingredients}
+            purchaseCanceled={this.purchaseCancelHandler}
+            purchaseContinued={this.purchaseContinueHandler}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
